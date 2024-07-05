@@ -18,7 +18,7 @@ master:
     defaultkubeconfig: /var/lib/rancher/k3s/agent/kubelet.kubeconfig
     defaultcafile: /var/lib/rancher/k3s/agent/client-ca.crt
   scheduler:
-    bins:
+    bins: 
       - containerd
   controllermanager:
     bins:
