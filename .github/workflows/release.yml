@@ -63,3 +63,13 @@ jobs:
           prime-repo: rancher
           prime-username: ${{ env.PRIME_REGISTRY_USERNAME }}
           prime-password: ${{ env.PRIME_REGISTRY_PASSWORD }}
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # required for creating GH release
+          GORELEASER_CURRENT_TAG: ${{ github.ref_name }} # specify the tag to be released
+        id: goreleaser
+        uses: goreleaser/goreleaser-action@v6
+        with:
+          distribution: goreleaser
+          version: "~> v2"
+          args: release --clean --verbose
