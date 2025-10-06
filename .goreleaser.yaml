@@ -1,17 +1,11 @@
-before:
-  hooks:
-    - make build
+version: 2
 
-builds:
-  - id: kb-summarizer
-    main: ./cmd/kb-summarizer
-    binary: kb-summarizer
-    env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-      - darwin
-      - windows
-    goarch:
-      - amd64
-      - arm64
+release:
+  prerelease: auto
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
